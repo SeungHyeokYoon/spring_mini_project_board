@@ -1,6 +1,7 @@
 package com.project2.board.controller;
 
 import com.project2.board.model.Post;
+import com.project2.board.model.PostPatchRequestBody;
 import com.project2.board.model.PostPostRequestBody;
 import com.project2.board.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,12 @@ public class PostController {
     @PostMapping
     public ResponseEntity<Post> createPost(@RequestBody PostPostRequestBody postPostRequestBody) {
         var post = postService.createPost(postPostRequestBody);
+        return ResponseEntity.ok(post);
+    }
+
+    @PatchMapping("/{postId}")
+    public ResponseEntity<Post> updatePost(@PathVariable Long postId, @RequestBody PostPatchRequestBody postPatchRequestBody) {
+        var post = postService.updatePost(postId, postPatchRequestBody);
         return ResponseEntity.ok(post);
     }
 }

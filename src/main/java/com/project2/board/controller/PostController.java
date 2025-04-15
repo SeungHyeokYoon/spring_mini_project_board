@@ -29,9 +29,7 @@ public class PostController {
             @PathVariable Long postId
     ) {
         Optional<Post> matchingPost = postService.getPostByPostId(postId);
-        return matchingPost
-                .map(post -> ResponseEntity.ok(post)) // == .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        return matchingPost.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping

@@ -1,5 +1,6 @@
 package com.project2.board.service;
 
+import com.project2.board.exception.post.PostNotFoundException;
 import com.project2.board.model.Post;
 import com.project2.board.model.PostPatchRequestBody;
 import com.project2.board.model.PostPostRequestBody;
@@ -31,7 +32,7 @@ public class PostService {
         var postEntity = postEntityRepository
                 .findById(postId)
                 .orElseThrow(
-                        () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Post not found.")
+                        () -> new PostNotFoundException(postId)
                 );
 
         return Post.from(postEntity);
@@ -48,7 +49,7 @@ public class PostService {
         var postEntity = postEntityRepository
                 .findById(postId)
                 .orElseThrow(
-                        () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Post not found.")
+                        () -> new PostNotFoundException(postId)
                 );
 
         postEntity.setBody(postPatchRequestBody.body());
@@ -60,7 +61,7 @@ public class PostService {
         var postEntity = postEntityRepository
                 .findById(postId)
                 .orElseThrow(
-                        () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Post not found.")
+                        () -> new PostNotFoundException(postId)
                 );
 
         postEntityRepository.delete(postEntity);

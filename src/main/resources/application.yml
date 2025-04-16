@@ -14,3 +14,12 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
       hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+
+  security:
+    user.name: board-admin
+    user.password: board-admin-password
+
+logging:
+  level:
+    # TRACE < DEBUG < INFO < WARN < ERROR
+    root: INFO

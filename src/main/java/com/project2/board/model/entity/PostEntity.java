@@ -9,8 +9,8 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "post")
-@SQLDelete(sql = "UPDATE post SET deleteddatetime = CURRENT_TIMESTAMP WHERE postid = ?")
-@SQLRestriction("deleteddatetime IS NULL")
+@SQLDelete(sql = "UPDATE post SET deletedDateTime = CURRENT_TIMESTAMP WHERE postId = ?")
+@SQLRestriction("deletedDateTime IS NULL")
 public class PostEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

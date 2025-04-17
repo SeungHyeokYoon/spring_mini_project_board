@@ -1,8 +1,8 @@
 package com.project2.board.controller;
 
-import com.project2.board.model.Post;
-import com.project2.board.model.PostPatchRequestBody;
-import com.project2.board.model.PostPostRequestBody;
+import com.project2.board.model.post.Post;
+import com.project2.board.model.post.PostPatchRequestBody;
+import com.project2.board.model.post.PostPostRequestBody;
 import com.project2.board.service.PostService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/posts")
